@@ -42,7 +42,7 @@ angular.module('mgcrea.ngStrap.modal', ['mgcrea.ngStrap.helpers.dimensions'])
         // Common vars
         var options = $bsmodal.$options = angular.extend({}, defaults, config);
         $bsmodal.$promise = fetchTemplate(options.template);
-        var scope = $modal.$scope = options.scope && options.scope.$new() || $rootScope.$new();
+        var scope = $bsmodal.$scope = options.scope && options.scope.$new() || $rootScope.$new();
         if(!options.element && !options.container) {
           options.container = 'body';
         }
@@ -151,7 +151,7 @@ angular.module('mgcrea.ngStrap.modal', ['mgcrea.ngStrap.helpers.dimensions'])
             $animate.enter(backdropElement, bodyElement, null, function() {});
           }
           $animate.enter(modalElement, parent, after, function() {
-            scope.$emit(options.prefixEvent + '.show', $modal);
+            scope.$emit(options.prefixEvent + '.show', $bsmodal);
           });
           scope.$isShown = true;
           scope.$$phase || (scope.$root && scope.$root.$$phase) || scope.$digest();
@@ -173,7 +173,7 @@ angular.module('mgcrea.ngStrap.modal', ['mgcrea.ngStrap.helpers.dimensions'])
             backdropElement.on('click', hideOnBackdropClick);
           }
           if(options.keyboard) {
-            modalElement.on('keyup', $modal.$onKeyUp);
+            modalElement.on('keyup', $bsmodal.$onKeyUp);
           }
         };
 
