@@ -25,7 +25,7 @@ angular.module('mgcrea.ngStrap.aside', ['mgcrea.ngStrap.modal'])
       show: true
     };
 
-    this.$get = ["$modal", function($modal) {
+    this.$get = ["$bsmodal", function($bsmodal) {
 
       function AsideFactory(config) {
 
@@ -34,7 +34,7 @@ angular.module('mgcrea.ngStrap.aside', ['mgcrea.ngStrap.modal'])
         // Common vars
         var options = angular.extend({}, defaults, config);
 
-        $aside = $modal(options);
+        $aside = $bsmodal(options);
 
         return $aside;
 
